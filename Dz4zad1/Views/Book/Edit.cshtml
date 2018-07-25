@@ -1,0 +1,103 @@
+﻿@model Dz4zad1.Models.ModelBook
+@using Dz4zad1.Models
+@{
+    Layout = null;
+    Book book = ViewBag.Book;
+    IEnumerable<SelectListItem> radio = ViewBag.Radio;
+    IEnumerable<SelectListItem> check = ViewBag.Check;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/Style.css" />
+    <title>Edit</title>
+</head>
+<body class="div_backgraund">
+<div class="menu">
+    @Html.RouteLink("Create Publisher", new { controller = "Home", action = "Index" })
+    @Html.RouteLink("Table Publisher", new { controller = "Home", action = "Show_Table" })
+    @Html.RouteLink("Create Author", new { controller = "Author", action = "Index" })
+    @Html.RouteLink("Table Author", new { controller = "Author", action = "Show_Table" })
+    @Html.ActionLink("Create Book", "Index")
+    @Html.ActionLink("Table Book", "Show_Table")
+</div>
+<div class="position">
+    <div class="div_img">
+        <img src="~/Images/books-icon2.png"/>
+    </div>
+    <div class="forma">
+        @if (book != null)
+        {
+            using (Html.BeginForm())
+            {
+                <h3 class="h3">Edit Book</h3>
+                @Html.ValidationSummary()
+                <div class="section">
+                    <p>Name:</p>
+                    <div class="Text">@Html.TextBox("Name", book.Name)</div>
+                </div>
+                if (radio.ToList().Count != 0)
+                {
+                    <div class="section">
+                        <p>Please Select Publisher:</p>
+                        <div class="radio">
+                            @foreach (var VARIABLE in radio)
+                            {
+                                if (VARIABLE.Selected)
+                                {
+                                    <input type="radio" name="RadioCeck" checked="checked" value="@VARIABLE.Value"/>@VARIABLE.Text
+                                }
+                                else
+                                {
+                                    <input type="radio" name="RadioCeck" value="@VARIABLE.Value"/>@VARIABLE.Text
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+                if (check.ToList().Count != 0)
+                {
+                    <div class="section">
+                        <p>Please Select Author:</p>
+                        @foreach (var item in check)
+                        {
+                            <div class="radio">
+                                <label>
+                                    @if (item.Selected)
+                                    {
+                                        <input type="checkbox" name="SelectedCeck" checked="checked" value="@item.Value"/>
+                                        @item.Text
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" name="SelectedCeck" value="@item.Value"/>
+                                        @item.Text
+                                    }
+                                </label>
+                            </div>
+                        }
+                    </div>
+                }
+                <div class="section">
+                    <p>PublishDate:</p>
+                    <div class="Text">@Html.TextBox("PublishDate", book.PublishDate.ToString("MM/dd/yyyy"))</div>
+                </div>
+                <div class="section">
+                    <p>PageCount:</p>
+                    <div class="Text">@Html.TextBox("PageCount", book.PageCount.ToString())</div>
+                </div>
+                <div class="section">
+                    <p>ISBN:</p>
+                    <div class="Text">@Html.TextBox("ISBN", book.ISBN)</div>
+                </div>
+                <input class="buttom" type="submit" name="@book.Id" value="Edit"/>
+            }
+        }
+    </div>
+</div>
+</body>
+</html>

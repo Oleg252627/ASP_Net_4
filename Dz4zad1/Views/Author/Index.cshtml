@@ -1,0 +1,50 @@
+﻿@model Dz4zad1.Models.ModelAuthor
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/Style.css" />
+    <title>Index</title>
+</head>
+<body class="div_backgraund">
+    <div class="menu">
+        @Html.RouteLink("Create Publisher", new { controller = "Home", action = "Index" })
+        @Html.RouteLink("Table Publisher", new { controller = "Home", action = "Show_Table" })
+        @Html.ActionLink("Create Author", "Index")
+        @Html.ActionLink("Table Author", "Show_Table")
+        @Html.RouteLink("Create Book", new { controller = "Book", action = "Index" })
+        @Html.RouteLink("Table Book", new { controller = "Book", action = "Show_Table" })
+    </div>
+<div class="position">
+    <div class="div_img">
+        <img src="~/Images/user.png"/>
+    </div>
+    <div class="forma">
+        @using (Html.BeginForm())
+        {
+            <h3 class="h3">Create Author</h3>
+            @Html.ValidationSummary()
+            <div class="section">
+                <p>Name:</p>
+                <div class="Text">@Html.TextBoxFor(x => x.Name)</div>
+            </div>
+            <div class="section">
+                <p>DateOfBirth:</p>
+                <div class="Text">@Html.TextBoxFor(x => x.DateOfBirth)</div>
+            </div>
+            <div class="section">
+                <p>DateOfDeath:</p>
+                <div class="Text">@Html.TextBoxFor(x => x.DateOfDeath)</div>
+            </div>
+            <input class="buttom" type="submit" value="Create"/>
+        }
+    </div>
+</div>
+</body>
+</html>

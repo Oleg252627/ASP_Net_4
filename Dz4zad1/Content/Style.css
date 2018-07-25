@@ -1,0 +1,194 @@
+﻿
+body {
+}
+
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-errors ul {
+    list-style: none;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.div_backgraund {
+    width: 100%;
+    margin: 0;
+    background: url("../Images/library.jpg") no-repeat bottom fixed;
+    background-size: cover;
+}
+
+.menu {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.menu a {
+    display: block;
+    padding: 17px;
+    text-transform: uppercase;
+    color: #ff267e;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.5s;
+    font-family: 'Opan Sans', sans-serif;
+}
+
+.menu a:hover {
+    color: #efed40
+}
+
+.position {
+    width: 330px;
+    margin: 50px auto 0;
+    padding-top: 60px;
+    position: relative;
+}
+
+.forma {
+    margin: 0 auto;
+    width: 100%;
+    padding: 60px 0 60px 0;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+
+.div_img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 7px;
+    left: 110px;
+}
+
+.div_img img {
+    width: 100%;
+}
+
+.h3 {
+    text-align: center;
+    color: #efed40;
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.section {
+    margin-left: 30px;
+}
+
+.section p {
+    margin-bottom: 7px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.Text input {
+    width: 100%;
+    margin-bottom: 3px;
+    border-style: none;
+    background: transparent;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.Text {
+    border-bottom: 1px solid #ff267e;
+    width: 260px;
+}
+
+.buttom {
+    display: block;
+    margin: 45px auto 0;
+    padding: 10px 90px;
+    border-radius: 18px;
+    background-color: #ff267e;
+    color: white;
+    font-family: 'Opan Sans', sans-serif;
+    font-size: 14px;
+    border-style: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.buttom:hover,
+.div_table .buttom:hover {
+    background-color: #efed40;
+    color: black;
+}
+
+.div_table {
+    width: 700px;
+    margin: 0 auto;
+    background-color: black;
+}
+
+.div_table table {
+    width: 100%;
+}
+
+.div_table tr {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #efed40;
+    color: #efed40;
+}
+
+.div_table .oglov {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    background-color: #efed40;
+    color: black;
+}
+
+.div_table td {
+    border: 1px solid #efed40;
+}
+
+.div_table .buttom {
+    width: 150px;
+    display: block;
+    margin: 10px auto 10px;
+    padding: 6px 20px;
+    border-radius: 18px;
+    background-color: #ff267e;
+    color: white;
+    font-family: 'Opan Sans', sans-serif;
+    font-size: 13px;
+    border-style: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.radio {
+    font-family: 'Opan Sans', sans-serif;
+    color: #ff267e;
+    font-size: 16px;
+}

@@ -1,0 +1,84 @@
+﻿@model Dz4zad1.Models.ModelBook
+
+@{
+    Layout = null;
+    IEnumerable<SelectListItem> radio = ViewBag.Radio;
+    IEnumerable<SelectListItem> Check = ViewBag.Check;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/Style.css" />
+    <title>Index</title>
+</head>
+<body class="div_backgraund">
+    <div class="menu">
+        @Html.RouteLink("Create Publisher", new { controller = "Home", action = "Index" })
+        @Html.RouteLink("Table Publisher", new { controller = "Home", action = "Show_Table" })
+        @Html.RouteLink("Create Author", new { controller = "Author", action = "Index" })
+        @Html.RouteLink("Table Author", new { controller = "Author", action = "Show_Table" })
+        @Html.ActionLink("Create Book", "Index")
+        @Html.ActionLink("Table Book", "Show_Table")
+    </div>
+<div class="position">
+    <div class="div_img">
+        <img src="~/Images/books-icon2.png"/>
+    </div>
+    <div class="forma">
+        @using (Html.BeginForm())
+        {
+            <h3 class="h3">Create Book</h3>
+            @Html.ValidationSummary()
+            <div class="section">
+                <p>Name</p>
+                <div class="Text">@Html.TextBoxFor(x => x.Name)</div>
+            </div>
+            if (radio.ToList().Count != 0)
+            {
+                <div class="section">
+                    <p>Please Select Publisher:</p>
+                    <div class="radio">
+                        @foreach (var VARIABLE in radio)
+                        {
+                            <input type="radio" name="RadioCeck" value="@VARIABLE.Value"/>@VARIABLE.Text
+                        }
+                    </div>
+                </div>
+            }
+            if (Check.ToList().Count != 0)
+            {
+                <div class="section">
+                    <p>Please Select Author:</p>
+                    @foreach (var item in Check)
+                    {
+                        <div class="radio">
+                            <label>
+                                <input type="checkbox" name="SelectedCeck" value="@item.Value"/> @item.Text
+                            </label>
+                        </div>
+                    }
+                </div>
+            }
+            <div class="section">
+                <p>PublishDate:</p>
+                <div class="Text">@Html.TextBoxFor(x => x.PublishDate)</div>
+            </div>
+            <div class="section">
+                <p>PageCount:</p>
+                <div class="Text">@Html.TextBoxFor(x => x.PageCount)</div>
+            </div>
+            <div class="section">
+                <p>ISBN:</p>
+                <div class="Text">@Html.TextBoxFor(x => x.ISBN)</div>
+            </div>
+            <input class="buttom" type="submit" value="Добавить"/>
+        }
+    </div>
+</div>
+</body>
+</html>
